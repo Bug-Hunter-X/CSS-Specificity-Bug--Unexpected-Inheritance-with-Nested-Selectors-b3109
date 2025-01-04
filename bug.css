@@ -1,0 +1,17 @@
+The following CSS code snippet demonstrates an unusual issue related to specificity and inheritance. The intention is to style all list items, but only the first list item is affected due to a subtle specificity problem caused by the nested selector:
+
+```css
+#myList li {
+  color: blue;
+}
+
+#myList li:first-child {
+  color: red;
+}
+
+#myList ul li {
+  color: green; /* This rule is surprisingly less specific and does not override */
+}
+```
+
+Notice that `#myList ul li` should logically have higher specificity than `#myList li`, yet it is not overriding the color. This is because the `:first-child` selector, despite appearing later, is applied to the first element and the other list elements still adhere to `#myList li` due to specificity rules.
