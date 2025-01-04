@@ -1,0 +1,17 @@
+The solution involves increasing the specificity of the rule targeting nested list items to ensure that it overrides the rule for all `li` elements. Here is the corrected CSS:
+
+```css
+#myList li {
+  color: blue;
+}
+
+#myList li:first-child {
+  color: red;
+}
+
+#myList > ul > li {
+  color: green; /* Increased specificity by using child combinators */
+}
+```
+
+By adding the `>` child combinator to the selector, we explicitly target only the immediate child `ul` elements within `#myList` and their direct children `li` elements, making the specificity higher and overriding previous rules.
